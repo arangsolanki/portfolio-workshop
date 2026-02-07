@@ -1,0 +1,38 @@
+---
+title: Building Performant React Applications in 2026
+date: 2026-02-01
+excerpt: Learn the latest techniques for optimizing React applications, from code splitting to server components.
+tags: [React, Performance, Next.js]
+---
+
+# Building Performant React Applications in 2026
+
+React continues to evolve, and with it, the best practices for building performant applications. In this article, we'll explore the latest techniques and patterns that will help you build blazing-fast React apps.
+
+## Server Components
+
+React Server Components are now a cornerstone of modern React development. They allow you to render components on the server, reducing the JavaScript bundle sent to the client.
+
+```tsx
+// This component runs only on the server
+async function BlogPost({ slug }: { slug: string }) {
+  const post = await getPost(slug);
+  return <article>{post.content}</article>;
+}
+```
+
+## Code Splitting
+
+Proper code splitting ensures users only download the code they need:
+
+```tsx
+import dynamic from 'next/dynamic';
+
+const HeavyComponent = dynamic(() => import('./HeavyComponent'), {
+  loading: () => <Skeleton />,
+});
+```
+
+## Conclusion
+
+By combining these techniques, you can build React applications that are both feature-rich and performant. The key is to always measure and optimize based on real user data.
